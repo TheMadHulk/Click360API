@@ -1,0 +1,17 @@
+.vs/
+bin/
+obj/
+packages/
+*.suo
+*.user
+.idea/
+*.iml
+*.orig
+node_modules/
+*.pubxml
+dist/
+*.zip
+
+*.nugetreferenceswitcher
+
+.vscode/

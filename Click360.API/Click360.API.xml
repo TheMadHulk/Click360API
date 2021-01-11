@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Click360.API</name>
+    </assembly>
+    <members>
+        <member name="T:Click360.API.Config.ConfigureSwaggerOptions">
+            <summary>
+            To configure <see cref="T:Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions"/> TOption type.
+            </summary>
+        </member>
+        <member name="M:Click360.API.Config.ConfigureSwaggerOptions.Configure(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions)">
+            <summary>
+            Configure versioned API documentation.
+            </summary>
+            <param name="options">The Swagger options.</param>
+        </member>
+        <member name="T:Click360.API.Config.SerilogConfig">
+            <summary>
+            To manage and configure serilog sinks, enrichers and loglevel.
+            </summary>
+        </member>
+        <member name="M:Click360.API.Config.SerilogConfig.Configure(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Configures the serilog sinks, enrichers and loglevel.
+            </summary>
+            <param name="serviceCollection">The instance of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.</param>
+            <param name="configuration">The configuration properties.</param>
+        </member>
+        <member name="T:Click360.API.Controllers.BaseAPIController">
+            <summary>
+            Base class for all API controllers
+            </summary>
+        </member>
+        <member name="M:Click360.API.Controllers.BaseAPIController.HandleException(System.Exception,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Generic method to handle exceptions for HttpResponseMessage.
+            </summary>
+            <param name="exp"></param>
+            <param name="userErrorMessage">Safe error message to display to the user</param>
+            <param name="httpStatus">error status to display to the user</param>
+            <returns></returns>
+        </member>
+        <member name="T:Click360.API.Controllers.LogLevelController">
+            <summary>
+            Controller for log level endpoints
+            </summary>
+        </member>
+        <member name="M:Click360.API.Controllers.LogLevelController.SetSerilogLoggingLevel(System.Int32)">
+            <summary>
+            Set the minimum Serilog logging level at runtime
+            1 = Debug
+            2 = Information
+            3 = Warning
+            4 = Error
+            </summary>
+            <param name="logEventLevel">Log event level (corresponds to Serilog.Events.LogEventLevel values)</param>
+            <returns>200 status</returns>
+        </member>
+        <member name="M:Click360.API.Controllers.LogLevelController.GetSerilogLoggingLevel">
+            <summary>
+            Get the minimum Serilog logging level at runtime
+            1 = Debug
+            2 = Information
+            3 = Warning
+            4 = Error
+            </summary>
+            <returns>LogEventLevel</returns>
+        </member>
+        <member name="T:Click360.API.Controllers.SurveyController">
+            <summary>
+            Handles all Organization related activities for Click360
+            </summary>
+        </member>
+        <member name="M:Click360.API.Controllers.SurveyController.#ctor(Click360.Core.Services.Interfaces.ISurveyService)">
+            <summary>
+            OrganizationController Constructor
+            </summary>
+            <param name="surveyService"></param>
+        </member>
+        <member name="M:Click360.API.Controllers.SurveyController.SaveSurvey(Click360.Core.DTOs.SurveyAnswersDTO)">
+            <summary>
+            Save a survey
+            </summary>
+            <param name="surveyResponse"></param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:Click360.API.Controllers.SurveyController.SaveMultipleSurveys(System.Collections.Generic.List{Click360.Core.DTOs.SurveyAnswersDTO})">
+            <summary>
+            Save multiple surveys
+            </summary>
+            <param name="surveyResponses"></param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:Click360.API.Controllers.SurveyController.GetSurveys(System.Guid)">
+            <summary>
+            Method for getting surveys for a user
+            </summary>
+            <param name="userID"></param>
+            <returns>List of Surveys</returns>
+        </member>
+        <member name="M:Click360.API.Controllers.SurveyController.GetSurveyQuestions(System.Int32,System.Int32)">
+            <summary>
+            Method for getting survey questions
+            </summary>
+            <param name="questionTypeID"></param>
+            <param name="likertScaleID"></param>
+            <returns>List of Survey Questions with Likert lookups</returns>
+        </member>
+        <member name="T:Click360.API.Program">
+            <summary>
+            The <see cref="T:Click360.API.Program"/> class.
+            </summary>
+        </member>
+        <member name="P:Click360.API.Program.WorkingDirectory">
+            <summary>
+            Working directory the application launched from
+            </summary>
+        </member>
+        <member name="P:Click360.API.Program.Configuration">
+            <summary>
+            .NET Configuration Service
+            </summary>
+        </member>
+        <member name="M:Click360.API.Program.Main(System.String[])">
+            <summary>
+            The application entry point
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Click360.API.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            The host builder for creating the kestrel instance
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Click360.API.SerilogLoggingLevelSwitch.SetLoggingLevel(System.Int32)">
+            <summary>
+            Set the Serilog logging level switch
+            Defaults to Information
+            </summary>
+            <param name="eventLevel">Logging level</param>
+        </member>
+        <member name="T:Click360.API.Startup">
+            <summary>
+            The application startup class to configure services and the app's request pipeline
+            </summary>
+        </member>
+        <member name="M:Click360.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Click360.API.Startup"/> class.
+            </summary>
+            <param name="configuration">The configuration properties.</param>
+        </member>
+        <member name="M:Click360.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services">The reference of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.</param>
+        </member>
+        <member name="M:Click360.API.Startup.ConfigureContainer(Autofac.ContainerBuilder)">
+            <summary>
+            ConfigureContainer is where you can register things directly
+            with Autofac. This runs after ConfigureServices so the things
+            here will override registrations made in ConfigureServices.
+            Don't build the container; that gets done for you by the factory.
+            </summary>
+            <param name="builder">The autofac container.</param>
+        </member>
+        <member name="M:Click360.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">The reference of <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>.</param>
+            <param name="env">The hosting environment.</param>
+        </member>
+    </members>
+</doc>
