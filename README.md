@@ -1,10 +1,10 @@
-# Vant4ge Point API
+# Click 360 API
 
 *Due to Identity Server requiring SSL support on host names other then localhost you can no longer use IIS Express*
 
 ## Development Environment Setup
 
-*You only need to do these instructions once, if you have problems see Brian or Chad*
+*You only need to do these instructions once, if you have problems see engineers*
 
 1. Create a hostfile entry for test-360selfdrive-api.com pointing to your machine's IP address it cannot be 127.0.0.1 cause of SSL
 2. You will need to install the SSL cert
